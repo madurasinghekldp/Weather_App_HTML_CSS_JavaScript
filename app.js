@@ -74,7 +74,7 @@ function getCurrentWeather(){
   rains = [];
   winds = [];
   rain_chance = [];
-  fetch(`http://api.weatherapi.com/v1/current.json?key=5936c69e951c4f53adf70011231108&q=${lat},${lon}&aqi=no`)
+  fetch(`https://api.weatherapi.com/v1/current.json?key=5936c69e951c4f53adf70011231108&q=${lat},${lon}&aqi=no`)
   .then((response) => response.json())
   .then((data) => {
     //console.log(json);
@@ -115,7 +115,7 @@ function getCurrentWeather(){
 
 function getForecastWeather(){
 
-  fetch(`http://api.weatherapi.com/v1/forecast.json?key=5936c69e951c4f53adf70011231108&q=${lat},${lon}&days=3&aqi=no&alerts=no`)
+  fetch(`https://api.weatherapi.com/v1/forecast.json?key=5936c69e951c4f53adf70011231108&q=${lat},${lon}&days=3&aqi=no&alerts=no`)
   .then((response) => response.json())
   .then((data) => {
     data.forecast.forecastday.forEach(day => {
@@ -138,7 +138,7 @@ function getHistoryWeather() {
   
   let pastSevenDays = getPastSevenDays();
   let promises = pastSevenDays.map(date => {
-      return fetch(`http://api.weatherapi.com/v1/history.json?key=5936c69e951c4f53adf70011231108&q=${lat},${lon}&dt=${date}`)
+      return fetch(`https://api.weatherapi.com/v1/history.json?key=5936c69e951c4f53adf70011231108&q=${lat},${lon}&dt=${date}`)
           .then(response => response.json())
           .then(data => {
               if (data.forecast && data.forecast.forecastday && data.forecast.forecastday.length > 0) {
