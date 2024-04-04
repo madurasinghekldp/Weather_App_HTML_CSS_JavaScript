@@ -182,8 +182,9 @@ function getLocation() {
 function showPosition(position) {
   lat = position.coords.latitude;
   lon = position.coords.longitude;
-  more_section.style.visibility = "hidden";
   getCurrentWeather();
+  more_section.style.visibility = "hidden";
+  
 }
 
 function setWeatherBackground(weatherCondition) {
